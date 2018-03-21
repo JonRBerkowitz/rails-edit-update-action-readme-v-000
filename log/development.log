@@ -517,3 +517,22 @@ Processing by PostsController#edit as HTML
   [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/edit.html.erb within layouts/application (1.0ms)
 Completed 200 OK in 37ms (Views: 26.6ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/posts/1" for 73.123.199.176 at 2018-03-21 02:30:44 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UrWm3GavELsz2VI/jMZLT03HXZ5jnnQu+Cj9VtuKnLrVDx3x/FtiOIkhrf9q40KXTs8yUtaYdrCHBIHYLd6EpQ==", "title"=>"Rails Introduction Quiz", "description"=>"asdfasdf lalalal", "commit"=>"Submit Post", "id"=>"1"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["description", "asdfasdf lalalal"], ["updated_at", "2018-03-21 02:30:44.163034"], ["id", 1]]
+  [1m[36m (4.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://67.205.130.239:37709/posts/1
+Completed 302 Found in 11ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/posts/1" for 73.123.199.176 at 2018-03-21 02:30:44 +0000
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 45ms (Views: 39.9ms | ActiveRecord: 0.2ms)
